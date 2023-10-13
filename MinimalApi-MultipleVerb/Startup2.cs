@@ -34,8 +34,9 @@ namespace MinimalApi_MultipleVerb
 				app.UseHsts();
 			}
 
-			//if (configRoot["EnableDeveloperExceptions"] == "True") //get value using 'key' and compare using environment variable
-			if (configRoot.GetValue<bool>("EnableDeveloperExceptions")) //using strongly types method
+			//if (configRoot["EnableDeveloperExceptions"] == "true") //get value using 'key' and compare using environment variable
+			//if (configRoot.GetValue<bool>("EnableDeveloperExceptions")) //using strongly types method
+			if (configRoot.GetValue<bool>("FeatureToggle:EnableDeveloperExceptions")) //using nested setting in config
 			{
 				app.UseDeveloperExceptionPage();
 			}
