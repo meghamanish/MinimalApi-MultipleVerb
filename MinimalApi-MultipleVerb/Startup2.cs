@@ -34,6 +34,12 @@ namespace MinimalApi_MultipleVerb
 				app.UseHsts();
 			}
 
+			//if (configRoot["EnableDeveloperExceptions"] == "True") //get value using 'key' and compare using environment variable
+			if (configRoot.GetValue<bool>("EnableDeveloperExceptions")) //using strongly types method
+			{
+				app.UseDeveloperExceptionPage();
+			}
+
 			if (app.Environment.IsDevelopment())
 			{
 				app.UseSwagger();
